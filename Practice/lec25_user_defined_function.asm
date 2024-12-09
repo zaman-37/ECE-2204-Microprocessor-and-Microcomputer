@@ -1,0 +1,24 @@
+INCLUDE "EMU8086.INC"
+.MODEL SMALL
+.STACK 100H
+.DATA
+
+.CODE 
+    MAIN PROC
+        MOV AX, @DATA
+        MOV DS, AX
+    
+        CALL MY_FUNCTION 
+        PRINTN "I AM THE MAIN PROCEDURE."
+    
+    MOV AH, 4CH
+    INT 21H
+    MAIN ENDP 
+    
+    MY_FUNCTION PROC
+        PRINTN "I AM THE USER DEFINED PROCDURE."
+         
+        RET
+    MY_FUNCTION ENDP
+    
+END MAIN
